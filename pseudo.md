@@ -9,5 +9,7 @@
 
 I like the RPS idea a lot, it's interesting and would let us flex more concepts, unsure if our grade would suffer from deviating from trivia.
 
+write a function that displays a countdown, give just 10 seconds per "question" for RPS game, if actual trivia allow 30.
+
 ## JS
 
