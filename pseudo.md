@@ -13,3 +13,27 @@ write a function that displays a countdown, give just 10 seconds per "question" 
 
 ## JS
 
+var tLimit = 10
+
+document.getElementByClass("answer").addEventListener("mouseover", hoverAnswer)
+document.getElementById("rock").addEventListener("click", answer("rock")
+document.getElementById("paper").addEventListener("click", answer("paper"))
+document.getElementById("scissors").addEventListener("click", answer("scissors"))
+
+function answer(aString){
+  
+}
+
+function timerReset(){
+  tLimit = 10
+}
+
+function newRound{
+
+}
+
+var tRemain = setInterval(function() {
+  //set the text of an element inside a div to the remaining time
+  tLimit -= 1
+}, 1000);
+
