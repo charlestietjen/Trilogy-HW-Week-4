@@ -1,0 +1,9 @@
+@font-face {
+    font-family: shrek;
+    src: url(shrek.ttf);
+}
+
+body {
+    color:aqua;
+    font-family:'shrek';
+}
