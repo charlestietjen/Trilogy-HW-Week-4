@@ -5,6 +5,7 @@ var roundNumber = 0;
 var activeCombo = false;
 var gameActive = true;
 var score = 0;
+var comboMult = 1;
 
 //document.getElementById("rock").addEventListener("mouseover", hoverAnswer("rock"));
 document.getElementById("rock").addEventListener("click", function(){answer(1)});
@@ -17,7 +18,7 @@ document.getElementById("scissors").addEventListener("click", function(){answer(
 newRound()
 
 function newRound(){
-    document.getElementById("score").innerHTML = score
+    document.getElementById("score").innerHTML = "Score " + score
     if (roundNumber > 10 && !activeCombo) {
         gameActive = false;
         clearInterval()
@@ -60,13 +61,20 @@ function answer(a) {
         } 
         else if ((a === 1 && opMove === 3) || (a === 2 && opMove === 1) || (a === 3 && opMove === 2)) { //player wins
             if (roundTime > 3){
-                activeCombo = true;
+                wombo();
             };
             console.log("should've won");
             score += (50 * comboMult);
             newRound()
         }
     }
+}
+
+function wombo(){
+    if (comboMult <= 5){
+        comboMult ++
+    }
+    activeCombo = true;
 }
 
 function timerFunc(){
