@@ -1,9 +1,50 @@
 @font-face {
     font-family: shrek;
-    src: url(shrek.ttf);
+    src: url(../font/shrek.ttf);
 }
 
-body {
-    color:aqua;
-    font-family:'shrek';
+body{
+    font-family: 'shrek';
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    margin: 5% 0 10% 0;
+}
+
+section{
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.align-rows {
+    display: flex;
+    flex-direction: row;
+}
+
+.game-bar {
+    margin-top: 20px;
+    padding: 7% 5% 5% 5%;
+    justify-content: center;
+}
+
+.UI {
+    margin: 20px 0 20px 0;
+    padding: 0 5% 0 2%;
+}
+
+.player-bar {
+    justify-content: center;
+}
+
+h1 {
+    font-size: 50px;
+    color:green;
+}
+
+
+h2{
+    font-size: 60px;
 }

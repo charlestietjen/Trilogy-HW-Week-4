@@ -4,11 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/styles.css">
     <title>Shrek Paper Scissors!</title>
 </head>
 <body>
-    <p>Big Test H1</p>
+    <Header>
+        <h1>Welcome to Shrek, Paper, Scissors</h1>
+    </Header>
+    <section>
+        <div class="game-bar align-rows">
+            <div class="UI"><h2 id="opponent-move">&#9994</h2></div>
+            <div class="UI"><h2 id="time-remain"></h2></div>
+            <div class="UI"><h2 id="score">0</h2></div>
+        </div>
+        <div class="player-bar align-rows">
+            <div class="UI answer" id="rock"><h2>&#9994</h2></div>
+            <div class="UI answer" id="paper"><h2>&#9995</h2></div>
+            <div class="UI answer" id="scissors"><h2>&#9996</h2></div>
+        </div>
+    </section>
     <script src="assets/js/script.js"></script>
 </body>
 </html>
