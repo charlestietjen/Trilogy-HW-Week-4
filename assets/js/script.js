@@ -6,6 +6,7 @@ var activeCombo = false;
 var gameActive = true;
 var score = 0;
 var comboMult = 1;
+var timerVar;
 
 //document.getElementById("rock").addEventListener("mouseover", hoverAnswer("rock"));
 document.getElementById("rock").addEventListener("click", function(){answer(1)});
@@ -15,13 +16,14 @@ document.getElementById("paper").addEventListener("click", function() {answer(2)
 document.getElementById("scissors").addEventListener("click", function(){answer(3)});
 //document.getElementById("scissors").addEventListener("mouseover", hoverAnswer("scissors"));
 
+document.getElementById("start-btn").addEventListener("click", function(){startGame()});
+
 newRound()
 
 function newRound(){
     document.getElementById("score").innerHTML = "Score " + score
     if (roundNumber > 10 && !activeCombo) {
-        gameActive = false;
-        clearInterval()
+        gameOver();
     }
     else {
         opMove = (Math.floor(Math.random() * 3) + 1);
@@ -51,7 +53,6 @@ function answer(a) {
         if (a === opMove){ //draw - no points
             console.log("Should've drawn");
             activeCombo = false;
-            newRound()
         }
         else if ((a === 1 && opMove === 2) || (a === 2 && opMove === 3) || (a === 3 && opMove === 1)) { //player loss
             console.log("should've lost");
@@ -88,6 +89,24 @@ function timerFunc(){
     }
 }
 
+function gameOver(){
+    gameActive = false;
+    roundtime = 0;
+    document.getElementById("time-remain").innerHTML = roundTime;
+    clearInterval(timerVar);
+    document.getElementById("start-btn").style.display = "inline";
+};
 
-setInterval(function(){ 
-        timerFunc(); }, 1000);
+function startGame(){
+    resetGame()
+    document.getElementById("start-btn").style.display = "none";
+    timerVar = setInterval(function(){ 
+    timerFunc(); }, 1000);
+}
+
+function resetGame(){
+    score = 0;
+    roundNumber = 0;
+    activeCombo = false;
+    document.getElementById("score").innerHTML = "Score: " + score;
+}
