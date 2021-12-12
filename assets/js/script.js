@@ -109,5 +109,5 @@ function resetGame(){
     score = 0;
     roundNumber = 0;
     activeCombo = false;
-    document.getElementById("score").innerHTML = "Score: " + score;
+    document.getElementById("score").innerHTML = "Score " + score;
 }
