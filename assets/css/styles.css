@@ -12,6 +12,7 @@ header {
     justify-content: center;
     text-align: center;
     margin: 5% 0 3% 0;
+    text-shadow: 2px 2px black;
 }
 
 section{
@@ -38,10 +39,20 @@ section{
 
 .player-bar {
     justify-content: center;
+    margin-bottom: 10px;
+}
+
+.answer {
+    padding: 10px 5% 10px 3%;
+}
+
+.answer:hover {
+    cursor: pointer;
+    border: solid;
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 60px;
     color:green;
 }
 
@@ -59,4 +70,9 @@ h2{
     padding: 0.6% 0 0.6% 0;
     left: 40%;
     font-size: 170%;
+}
+
+#start-btn:hover {
+    cursor: pointer;
+    border: solid;
 }
