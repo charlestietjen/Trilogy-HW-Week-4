@@ -7,6 +7,8 @@ var gameActive = false;
 var score = 0;
 var comboMult = 1;
 var timerVar;
+var highScore = localStorage.getItem("highscore");
+var finalScore;
 
 //document.getElementById("rock").addEventListener("mouseover", hoverAnswer("rock"));
 document.getElementById("rock").addEventListener("click", function(){answer(1)});
@@ -17,6 +19,11 @@ document.getElementById("scissors").addEventListener("click", function(){answer(
 //document.getElementById("scissors").addEventListener("mouseover", hoverAnswer("scissors"));
 
 document.getElementById("start-btn").addEventListener("click", function(){startGame()});
+
+if (highScore === null) {
+    highScore = 0;
+}
+document.getElementById("high-score").innerHTML = "High Score " + highScore;
 
 newRound()
 
@@ -52,17 +59,17 @@ function answer(a) {
         //console.log("enemy move: " + opMove)
         if (a === opMove){ //draw - no points
             //console.log("Should've drawn");
-            activeCombo = false;
+            wombo(false);
         }
         else if ((a === 1 && opMove === 2) || (a === 2 && opMove === 3) || (a === 3 && opMove === 1)) { //player loss
             //console.log("should've lost");
             score -= 50;
-            activeCombo = false;
+            wombo(false);
             newRound()
         } 
         else if ((a === 1 && opMove === 3) || (a === 2 && opMove === 1) || (a === 3 && opMove === 2)) { //player wins
             if (roundTime > 3){
-                wombo();
+                wombo(true);
             };
             //console.log("should've won");
             score += (50 * comboMult);
@@ -71,11 +78,17 @@ function answer(a) {
     }
 }
 
-function wombo(){
-    if (comboMult <= 5){
+function wombo(wombo){
+    if (!wombo) {
+        activeCombo = false 
+        document.getElementById("wombo-combo").style.display = "none";
+        return;
+    }
+    else if (comboMult <= 5){
         comboMult ++
     }
     activeCombo = true;
+    document.getElementById("wombo-combo").style.display = "inline";
 }
 
 function timerFunc(){
@@ -90,16 +103,19 @@ function timerFunc(){
 }
 
 function gameOver(){
+    scoreHandler()
     gameActive = false;
     roundtime = 0;
     document.getElementById("time-remain").innerHTML = roundTime;
     clearInterval(timerVar);
     document.getElementById("start-btn").style.display = "inline";
+    document.getElementById("game-over").style.display = "inline";
 };
 
 function startGame(){
     resetGame()
     gameActive = true;
+    document.getElementById("game-over").style.display = "none";
     document.getElementById("start-btn").style.display = "none";
     timerVar = setInterval(function(){ 
     timerFunc(); }, 1000);
@@ -110,4 +126,12 @@ function resetGame(){
     roundNumber = 0;
     activeCombo = false;
     document.getElementById("score").innerHTML = "Score " + score;
+}
+
+function scoreHandler(){
+    finalScore = score;
+    if (finalScore > highScore) {
+        alert("Wow, that's a new high score!")
+        localStorage.setItem("highscore", score)
+    }
 }

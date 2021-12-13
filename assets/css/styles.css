@@ -71,6 +71,17 @@ section{
     padding: 0 5% 0 2%;
 }
 
+#high-score {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    font-size: 25px;
+    background: var(--secCol);
+    padding: 3px 3px 3px 3px;
+    border: solid;
+    border-radius: 5px;
+}
+
 #opponent-move {
     font-size: 100px;
     position: absolute;
@@ -114,6 +125,7 @@ section{
     padding: 3px 6px 3px 6px;
     border: solid;
     border-radius: 15px;
+    display: none;
 }
 
 #start-btn {
