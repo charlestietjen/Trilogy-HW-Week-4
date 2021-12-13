@@ -27,6 +27,7 @@ This is a relatively simple rock, paper, scissors game following the regular tri
 The game ends at 10 rounds unless you have a combo active, in which case the game will run extra rounds until you lose your combo state by answering slowly or incorrectly.
 
 * Please note that I didn't have time to make this scalable to different screen sizes, it is definitely best viewed at 1080p or close to it.
+* Second note - I had big plans for filling this page with more Shrek, images, sound clips for round feedback, but alas my vision will not be realized in time.
 
 ## Links
 
