@@ -14,6 +14,22 @@ This week's challenge was to create a timed functioning trivia game that meets t
 - WHEN the game is over
     - THEN I can save my initials and score
 
+## The Game
+
+My project "takes liberties" with the trivia aspect of the project, my game instead tasks the player with providing the correct answer to a rock, paper, scissors challenge.
+
+While I believe my project still satisfies the acceptance criteria, it's lacking in polish and usability, a brief explainer is included below to compensate.
+
+## How to Play
+
+This is a relatively simple rock, paper, scissors game following the regular triangular rules, ie. paper beats rock which beats scissors which beats paper but with a slight twist, you're presented with the opponents move immediately and must respond correctly within 5 seconds. Answering correctly within the first 2 will begin a combo that gives an exponential score multiplier until a cap is reached.
+
+The game ends at 10 rounds unless you have a combo active, in which case the game will run extra rounds until you lose your combo state by answering slowly or incorrectly.
+
+* Please note that I didn't have time to make this scalable to different screen sizes, it is definitely best viewed at 1080p or close to it.
+
+## Links
+
 [Deployed Game](https://charlestietjen.github.io/Trilogy-HW-Week-4-Trivia-Game/ "Shrek, Paper, Scissors!")
 
 ![](project SS.png?raw=true "Shrek, Paper, Scissors! Screenshot")
