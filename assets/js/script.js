@@ -20,16 +20,16 @@ document.getElementById("scissors").addEventListener("click", function(){answer(
 
 document.getElementById("start-btn").addEventListener("click", function(){startGame()});
 
-if (highScore === null) {
+if (highScore === NaN) {
     highScore = 0;
 }
-document.getElementById("high-score").innerHTML = "High Score " + highScore;
+setHighScore(highScore);
 
 newRound()
 
 function newRound(){
     document.getElementById("score").innerHTML = "Score " + score
-    if (roundNumber > 10 && !activeCombo) {
+    if (roundNumber > 10 && activeCombo === false) {
         gameOver();
     }
     else {
@@ -60,20 +60,24 @@ function answer(a) {
         if (a === opMove){ //draw - no points
             //console.log("Should've drawn");
             wombo(false);
+            newRound();
         }
         else if ((a === 1 && opMove === 2) || (a === 2 && opMove === 3) || (a === 3 && opMove === 1)) { //player loss
             //console.log("should've lost");
             score -= 50;
             wombo(false);
-            newRound()
+            newRound();
         } 
         else if ((a === 1 && opMove === 3) || (a === 2 && opMove === 1) || (a === 3 && opMove === 2)) { //player wins
-            if (roundTime > 3){
+            if (roundTime >= 3){
                 wombo(true);
-            };
+            }
+            else {
+                wombo(false);
+            }
             //console.log("should've won");
             score += (50 * comboMult);
-            newRound()
+            newRound();
         }
     }
 }
@@ -93,12 +97,16 @@ function wombo(wombo){
 
 function timerFunc(){
     if (roundTime > 0) {
-    console.log(roundTime)
     roundTime -= 1
+    console.log(roundTime);
+    console.log(activeCombo);
     document.getElementById("time-remain").innerHTML = roundTime;
     }
     else {
-        newRound()
+        wombo(false);
+        console.log(roundTime);
+        console.log(activeCombo);
+        newRound();
     }
 }
 
@@ -133,5 +141,10 @@ function scoreHandler(){
     if (finalScore > highScore) {
         alert("Wow, that's a new high score!")
         localStorage.setItem("highscore", score)
+        setHighScore(score)
     }
 }
+
+function setHighScore(newScore) {
+    document.getElementById("high-score").innerHTML = "High Score " + newScore;
+};

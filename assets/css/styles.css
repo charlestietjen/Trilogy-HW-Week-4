@@ -116,7 +116,7 @@ section{
     box-shadow: 2px 2px black;
 }
 
-.wombo-combo {
+#wombo-combo {
     position: absolute;
     right: 10%;
     top: 70%;
