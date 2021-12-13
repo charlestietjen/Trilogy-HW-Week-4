@@ -32,4 +32,4 @@ The game ends at 10 rounds unless you have a combo active, in which case the gam
 
 [Deployed Game](https://charlestietjen.github.io/Trilogy-HW-Week-4-Trivia-Game/ "Shrek, Paper, Scissors!")
 
-![ProjectSS](project SS.png?raw=true "Shrek, Paper, Scissors! Screenshot")
+![ProjectSS](project-SS.png?raw=true)
